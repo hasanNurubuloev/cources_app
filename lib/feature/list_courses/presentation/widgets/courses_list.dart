@@ -40,7 +40,6 @@ class CoursesList extends StatelessWidget {
                     }
                   }),
                   child: Container(
-                    // color: Colors.lightBlueAccent,
                     margin: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -51,13 +50,24 @@ class CoursesList extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            state.listCourses[index].title,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: FontFamily.alegaya,
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                state.listCourses[index].title,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: FontFamily.alegaya,
+                                ),
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {
+                                  context.router.push(AddingCourseRoute(id: state.listCourses[index].id));
+                                },
+                                icon: const Icon(Icons.edit),
+                              )
+                            ],
                           ),
                           const SizedBox(height: 8),
                           Text(

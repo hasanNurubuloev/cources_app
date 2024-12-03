@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ListColorsSelected extends StatefulWidget {
+  final Color? color;
   final void Function(Color color) onSelectColor;
 
   const ListColorsSelected({
     super.key,
+    this.color,
     required this.onSelectColor,
   });
 
@@ -26,8 +28,13 @@ class _ListColorsSelectedState extends State<ListColorsSelected> {
   @override
   void initState() {
     super.initState();
-    _selectedColor = _colors.first;
-    widget.onSelectColor.call(_selectedColor);
+    print('ololo ${widget.color}');
+    if (widget.color == null){
+      _selectedColor = _colors.first;
+    } else {
+      _selectedColor = widget.color!;
+      widget.onSelectColor.call(_selectedColor);
+    }
   }
 
   @override

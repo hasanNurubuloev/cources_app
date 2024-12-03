@@ -14,17 +14,24 @@ import 'package:cources_app/feature/add_course/presentation/adding_course_screen
 import 'package:cources_app/feature/course_detail/presentation/course_detail_screen.dart'
     as _i2;
 import 'package:cources_app/feature/list_courses/domain/entity/courses_entity.dart'
-    as _i5;
+    as _i6;
 import 'package:cources_app/feature/list_courses/presentation/list_courses_screen.dart'
     as _i3;
-import 'package:flutter/material.dart' as _i6;
+import 'package:flutter/material.dart' as _i5;
 
 /// generated route for
 /// [_i1.AddingCourseScreen]
-class AddingCourseRoute extends _i4.PageRouteInfo<void> {
-  const AddingCourseRoute({List<_i4.PageRouteInfo>? children})
-      : super(
+class AddingCourseRoute extends _i4.PageRouteInfo<AddingCourseRouteArgs> {
+  AddingCourseRoute({
+    int? id,
+    _i5.Key? key,
+    List<_i4.PageRouteInfo>? children,
+  }) : super(
           AddingCourseRoute.name,
+          args: AddingCourseRouteArgs(
+            id: id,
+            key: key,
+          ),
           initialChildren: children,
         );
 
@@ -33,17 +40,38 @@ class AddingCourseRoute extends _i4.PageRouteInfo<void> {
   static _i4.PageInfo page = _i4.PageInfo(
     name,
     builder: (data) {
-      return const _i1.AddingCourseScreen();
+      final args = data.argsAs<AddingCourseRouteArgs>(
+          orElse: () => const AddingCourseRouteArgs());
+      return _i1.AddingCourseScreen(
+        id: args.id,
+        key: args.key,
+      );
     },
   );
+}
+
+class AddingCourseRouteArgs {
+  const AddingCourseRouteArgs({
+    this.id,
+    this.key,
+  });
+
+  final int? id;
+
+  final _i5.Key? key;
+
+  @override
+  String toString() {
+    return 'AddingCourseRouteArgs{id: $id, key: $key}';
+  }
 }
 
 /// generated route for
 /// [_i2.CourseDetailScreen]
 class CourseDetailRoute extends _i4.PageRouteInfo<CourseDetailRouteArgs> {
   CourseDetailRoute({
-    required _i5.CoursesEntity coursesModel,
-    _i6.Key? key,
+    required _i6.CoursesEntity coursesModel,
+    _i5.Key? key,
     List<_i4.PageRouteInfo>? children,
   }) : super(
           CourseDetailRoute.name,
@@ -74,9 +102,9 @@ class CourseDetailRouteArgs {
     this.key,
   });
 
-  final _i5.CoursesEntity coursesModel;
+  final _i6.CoursesEntity coursesModel;
 
-  final _i6.Key? key;
+  final _i5.Key? key;
 
   @override
   String toString() {

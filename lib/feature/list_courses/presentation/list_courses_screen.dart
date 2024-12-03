@@ -35,7 +35,7 @@ class ListCoursesScreen extends StatelessWidget {
         floatingActionButton: Builder(builder: (context) {
           return FloatingActionButton(
             onPressed: () {
-              context.router.push(const AddingCourseRoute()).then(
+              context.router.push(AddingCourseRoute()).then(
                 (e) {
                   if (context.mounted) {
                     context.read<ListCoursesBloc>().add(const GetListCoursesEvent.getListCourses());

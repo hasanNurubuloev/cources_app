@@ -9,7 +9,6 @@ import 'package:flutter/material.dart' show Color, Colors;
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-part 'course_table_helper.dart';
 part 'data_base.g.dart';
 
 @DriftDatabase(tables: [Courses])
@@ -18,6 +17,7 @@ class Database extends _$Database {
 
   @override
   int get schemaVersion => 1;
+
 
   @override
   MigrationStrategy get migration => MigrationStrategy(

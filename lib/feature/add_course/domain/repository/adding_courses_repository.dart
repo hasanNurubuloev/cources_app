@@ -5,4 +5,6 @@ import 'package:fpdart/fpdart.dart';
 
 abstract class AddingCourseRepository {
   Future<Either<Failure, Success>> addingCourse(CoursesEntity courseEntity);
+  Future<Either<Failure, CoursesEntity>> selectCourse(int id);
+  Future<Either<Failure, Success>> updateCourse(CoursesEntity course);
 }

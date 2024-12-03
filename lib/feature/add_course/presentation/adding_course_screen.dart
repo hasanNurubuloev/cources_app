@@ -12,7 +12,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class AddingCourseScreen extends StatefulWidget {
-  const AddingCourseScreen({super.key});
+  final int? id;
+
+  const AddingCourseScreen({this.id, super.key});
 
   @override
   State<AddingCourseScreen> createState() => _AddingCourseScreenState();
@@ -47,7 +49,13 @@ class _AddingCourseScreenState extends State<AddingCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AddingCourseBloc>(
-      create: (context) => getIt<AddingCourseBloc>(),
+      create: (context) {
+        if (widget.id != null) {
+          return getIt<AddingCourseBloc>()..add(SelectCourseEvent.selectCourse(widget.id!));
+        } else {
+          return getIt<AddingCourseBloc>();
+        }
+      },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -66,12 +74,27 @@ class _AddingCourseScreenState extends State<AddingCourseScreen> {
             padding: const EdgeInsets.all(24),
             child: BlocConsumer<AddingCourseBloc, AddingCourseState>(
               listener: (context, state) {
-                state.stateStatus.whenOrNull(success: (_) {
-                  AppSnackBar.show(context: context, titleText: 'Курс успешно добавлен!');
-                  context.maybePop();
-                }, failure: (msg) {
-                  AppSnackBar.show(context: context, titleText: msg, error: true);
-                });
+                state.stateStatus.whenOrNull(
+                    initial: () {},
+                    success: (val) {
+                      if ((val is bool) == false) {
+                        AppSnackBar.show(context: context, titleText: 'Курс успешно добавлен!');
+                        context.maybePop();
+                      } else {
+                        print(' olololololo ${state.courseEntity?.color}');
+
+                        if (widget.id != null) {
+                          _nameController.text = state.courseEntity?.title ?? 'test';
+                          _descriptionController.text = state.courseEntity?.description ?? 'test';
+                          _priceController.text = state.courseEntity?.price.toString() ?? '0';
+                          _durationController.text = state.courseEntity?.duration.toString() ?? '0';
+                          _color = state.courseEntity?.color;
+                        }
+                      }
+                    },
+                    failure: (msg) {
+                      AppSnackBar.show(context: context, titleText: msg, error: true);
+                    });
               },
               builder: (context, state) {
                 return Stack(
@@ -114,11 +137,13 @@ class _AddingCourseScreenState extends State<AddingCourseScreen> {
                             validator: (value) => value.validateIsNumber('Введите корректную продолжительность'),
                           ),
                           const SizedBox(height: 16),
-                          ListColorsSelected(
-                            onSelectColor: (Color color) {
-                              _color = color;
-                            },
-                          ),
+                          // if (state.stateStatus is SuccessStatus)
+                            ListColorsSelected(
+                              color: state.courseEntity?.color,
+                              onSelectColor: (Color color) {
+                                _color = color;
+                              },
+                            ),
                           const SizedBox(height: 16),
                           Container(
                             width: MediaQuery.of(context).size.width,
@@ -129,19 +154,36 @@ class _AddingCourseScreenState extends State<AddingCourseScreen> {
                             ),
                             child: TextButton(
                               onPressed: () {
-                                if (_formKey.currentState?.validate() == true && _color != null) {
-                                  context.read<AddingCourseBloc>().add(
-                                        AddingCourseEvent.addCourse(
+                                state.stateStatus.whenOrNull(success: (bool) {
+                                  if (!bool) {
+                                    if (_formKey.currentState?.validate() == true && _color != null) {
+                                      context.read<AddingCourseBloc>().add(
+                                            AddingCourseEvent.addCourse(
+                                              CoursesEntity(
+                                                title: _nameController.text,
+                                                description: _descriptionController.text,
+                                                price: int.parse(_priceController.text),
+                                                duration: int.parse(_durationController.text),
+                                                color: _color!,
+                                              ),
+                                            ),
+                                          );
+                                    }
+                                  } else {
+                                    print(' olololo ${_color}');
+                                    context.read<AddingCourseBloc>().add(UpdateCourseEvent.updateCourse(
                                           CoursesEntity(
+                                            id: widget.id,
                                             title: _nameController.text,
                                             description: _descriptionController.text,
                                             price: int.parse(_priceController.text),
                                             duration: int.parse(_durationController.text),
                                             color: _color!,
                                           ),
-                                        ),
-                                      );
-                                }
+                                        ));
+                                    context.maybePop();
+                                  }
+                                });
                               },
                               child: const Text(
                                 'Сохранить',

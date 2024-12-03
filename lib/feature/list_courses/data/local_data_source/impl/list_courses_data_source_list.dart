@@ -10,6 +10,7 @@ class ListCoursesDataSourceImpl extends ListCoursesDataSource {
 
   @override
   Future<List<Course>> getListCourses() async {
+    print(await db.select(db.courses).get());
     return db.select(db.courses).get();
   }
 

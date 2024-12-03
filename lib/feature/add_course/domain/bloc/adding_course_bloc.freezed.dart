@@ -248,6 +248,453 @@ abstract class _AddingCourse implements AddingCourseEvent {
 }
 
 /// @nodoc
+mixin _$SelectCourseEvent {
+  int get id => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) selectCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? selectCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? selectCourse,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SelectCourse value) selectCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SelectCourse value)? selectCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SelectCourse value)? selectCourse,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of SelectCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $SelectCourseEventCopyWith<SelectCourseEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SelectCourseEventCopyWith<$Res> {
+  factory $SelectCourseEventCopyWith(
+          SelectCourseEvent value, $Res Function(SelectCourseEvent) then) =
+      _$SelectCourseEventCopyWithImpl<$Res, SelectCourseEvent>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class _$SelectCourseEventCopyWithImpl<$Res, $Val extends SelectCourseEvent>
+    implements $SelectCourseEventCopyWith<$Res> {
+  _$SelectCourseEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of SelectCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SelectCourseImplCopyWith<$Res>
+    implements $SelectCourseEventCopyWith<$Res> {
+  factory _$$SelectCourseImplCopyWith(
+          _$SelectCourseImpl value, $Res Function(_$SelectCourseImpl) then) =
+      __$$SelectCourseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$SelectCourseImplCopyWithImpl<$Res>
+    extends _$SelectCourseEventCopyWithImpl<$Res, _$SelectCourseImpl>
+    implements _$$SelectCourseImplCopyWith<$Res> {
+  __$$SelectCourseImplCopyWithImpl(
+      _$SelectCourseImpl _value, $Res Function(_$SelectCourseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SelectCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$SelectCourseImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectCourseImpl implements _SelectCourse {
+  const _$SelectCourseImpl(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'SelectCourseEvent.selectCourse(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectCourseImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of SelectCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectCourseImplCopyWith<_$SelectCourseImpl> get copyWith =>
+      __$$SelectCourseImplCopyWithImpl<_$SelectCourseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) selectCourse,
+  }) {
+    return selectCourse(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? selectCourse,
+  }) {
+    return selectCourse?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? selectCourse,
+    required TResult orElse(),
+  }) {
+    if (selectCourse != null) {
+      return selectCourse(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SelectCourse value) selectCourse,
+  }) {
+    return selectCourse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SelectCourse value)? selectCourse,
+  }) {
+    return selectCourse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SelectCourse value)? selectCourse,
+    required TResult orElse(),
+  }) {
+    if (selectCourse != null) {
+      return selectCourse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectCourse implements SelectCourseEvent {
+  const factory _SelectCourse(final int id) = _$SelectCourseImpl;
+
+  @override
+  int get id;
+
+  /// Create a copy of SelectCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectCourseImplCopyWith<_$SelectCourseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$UpdateCourseEvent {
+  CoursesEntity get course => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CoursesEntity course) updateCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CoursesEntity course)? updateCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CoursesEntity course)? updateCourse,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateCourse value) updateCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateCourse value)? updateCourse,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateCourse value)? updateCourse,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UpdateCourseEventCopyWith<UpdateCourseEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateCourseEventCopyWith<$Res> {
+  factory $UpdateCourseEventCopyWith(
+          UpdateCourseEvent value, $Res Function(UpdateCourseEvent) then) =
+      _$UpdateCourseEventCopyWithImpl<$Res, UpdateCourseEvent>;
+  @useResult
+  $Res call({CoursesEntity course});
+
+  $CoursesEntityCopyWith<$Res> get course;
+}
+
+/// @nodoc
+class _$UpdateCourseEventCopyWithImpl<$Res, $Val extends UpdateCourseEvent>
+    implements $UpdateCourseEventCopyWith<$Res> {
+  _$UpdateCourseEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? course = null,
+  }) {
+    return _then(_value.copyWith(
+      course: null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as CoursesEntity,
+    ) as $Val);
+  }
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoursesEntityCopyWith<$Res> get course {
+    return $CoursesEntityCopyWith<$Res>(_value.course, (value) {
+      return _then(_value.copyWith(course: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$UpdateCourseImplCopyWith<$Res>
+    implements $UpdateCourseEventCopyWith<$Res> {
+  factory _$$UpdateCourseImplCopyWith(
+          _$UpdateCourseImpl value, $Res Function(_$UpdateCourseImpl) then) =
+      __$$UpdateCourseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CoursesEntity course});
+
+  @override
+  $CoursesEntityCopyWith<$Res> get course;
+}
+
+/// @nodoc
+class __$$UpdateCourseImplCopyWithImpl<$Res>
+    extends _$UpdateCourseEventCopyWithImpl<$Res, _$UpdateCourseImpl>
+    implements _$$UpdateCourseImplCopyWith<$Res> {
+  __$$UpdateCourseImplCopyWithImpl(
+      _$UpdateCourseImpl _value, $Res Function(_$UpdateCourseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? course = null,
+  }) {
+    return _then(_$UpdateCourseImpl(
+      null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as CoursesEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCourseImpl implements _UpdateCourse {
+  const _$UpdateCourseImpl(this.course);
+
+  @override
+  final CoursesEntity course;
+
+  @override
+  String toString() {
+    return 'UpdateCourseEvent.updateCourse(course: $course)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCourseImpl &&
+            (identical(other.course, course) || other.course == course));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, course);
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCourseImplCopyWith<_$UpdateCourseImpl> get copyWith =>
+      __$$UpdateCourseImplCopyWithImpl<_$UpdateCourseImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(CoursesEntity course) updateCourse,
+  }) {
+    return updateCourse(course);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(CoursesEntity course)? updateCourse,
+  }) {
+    return updateCourse?.call(course);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CoursesEntity course)? updateCourse,
+    required TResult orElse(),
+  }) {
+    if (updateCourse != null) {
+      return updateCourse(course);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateCourse value) updateCourse,
+  }) {
+    return updateCourse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateCourse value)? updateCourse,
+  }) {
+    return updateCourse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateCourse value)? updateCourse,
+    required TResult orElse(),
+  }) {
+    if (updateCourse != null) {
+      return updateCourse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateCourse implements UpdateCourseEvent {
+  const factory _UpdateCourse(final CoursesEntity course) = _$UpdateCourseImpl;
+
+  @override
+  CoursesEntity get course;
+
+  /// Create a copy of UpdateCourseEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateCourseImplCopyWith<_$UpdateCourseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddingCourseState {
   StateStatus get stateStatus => throw _privateConstructorUsedError;
   CoursesEntity? get courseEntity => throw _privateConstructorUsedError;
